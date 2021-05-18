@@ -1,13 +1,17 @@
 cask "jabra-direct" do
-  version "5.0.17635"
+  version "5.4.33519"
   sha256 :no_check
 
   url "https://jabraxpressonlineprdstor.blob.core.windows.net/jdo/JabraDirectSetup.dmg",
       verified: "jabraxpressonlineprdstor.blob.core.windows.net/jdo/"
-  appcast "https://jabraexpressonlinejdo.jabra.com/jdo/jdo.json"
   name "Jabra Direct"
   desc "Optimise and personalise your Jabra headset"
   homepage "https://www.jabra.com/software-and-services/jabra-direct"
+
+  livecheck do
+    url "https://jabraexpressonlinejdo.jabra.com/jdo/jdo.json"
+    regex(/"MacVersion"\s*:\s*"(\d+(?:\.\d+)+)"/i)
+  end
 
   pkg "JabraDirectSetup.pkg"
 

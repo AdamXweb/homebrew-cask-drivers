@@ -1,13 +1,17 @@
 cask "luna-secondary" do
-  version "4.3.0"
-  sha256 "619af97a113ddd9c4990df4eaaca7cd7c233e22e13db94e97812164d9086878e"
+  version "4.5.0"
+  sha256 "38fca2cafa45cc08d12dedf5973850b1dcf99f35ab20428927ca4fa7c6a91dda"
 
   url "https://s3.amazonaws.com/s3.lunadisplay.com/downloads/LunaSecondary-#{version}.dmg",
       verified: "s3.amazonaws.com/s3.lunadisplay.com/"
-  appcast "https://s3.lunadisplay.com/downloads/luna-secondary-sparkle.xml"
   name "Luna Secondary"
   desc "Turn a computer or tablet into a second display"
   homepage "https://lunadisplay.com/"
+
+  livecheck do
+    url "https://downloads.astropad.com/luna/latest-secondary"
+    strategy :header_match
+  end
 
   app "Luna Secondary.app"
 
